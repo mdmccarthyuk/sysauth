@@ -25,7 +25,8 @@ when 'redhat', 'centos'
       :krb_realm => node['sysauth']['krb5']['realm'],
       :krb_kdc => node['sysauth']['krb5']['kdc'],
       :ldap_server => node['sysauth']['ldap']['server'],
-      :ldap_base => node['sysauth']['ldap']['base']
+      :ldap_base => node['sysauth']['ldap']['base'],
+      :flag_enum => node['sysauth']['flags']['enumerate']
     })
   end
 

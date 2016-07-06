@@ -1,6 +1,8 @@
 ### general flags
 # mkhome - set to true to enable making homedirs. 
 default['sysauth']['flags']['mkhome'] = 'true'
+# enumerate - set to true to make sssd enumerate 
+default['sysauth']['flags']['enumerate'] = 'true'
 
 ### kerberos attributes
 # kerberos realm

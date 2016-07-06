@@ -12,7 +12,11 @@ ldap_uri = ldap://<%= @ldap_server %>
 krb5_kpasswd = <%= @krb_kdc %>
 ldap_id_use_start_tls = False
 ldap_tls_cacertdir = /etc/openldap/cacerts
+<% if node[:sysauth][:flags][:enumerate]=='true' -%>
 enumerate = True
+<% else -%>
+enumerate = False
+<% end -%>
 
 [sssd]
 services = nss, pam, autofs
