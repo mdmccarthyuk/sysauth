@@ -4,7 +4,7 @@
  admin_server = FILE:/var/log/kadmind.log
 
 [libdefaults]
- default_realm = <%= @krb_realm %>
+ default_realm = <%= node[:sysauth][:krb5][:realm] %>
  dns_lookup_realm = false
  dns_lookup_kdc = false
  ticket_lifetime = 24h
@@ -12,8 +12,8 @@
  forwardable = true
 
 [realms]
- <%= @krb_realm %> = {
-  kdc = <%= @krb_kdc %>
-  admin_server = <%= @krb_kadmin %>
+ <%= node[:sysauth][:krb5][:realm] %> = {
+  kdc = <%= node[:sysauth][:krb5][:kdc] %>
+  admin_server = <%= node[:sysauth][:krb5][:kadmin] %>
  }
 

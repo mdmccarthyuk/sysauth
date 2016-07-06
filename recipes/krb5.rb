@@ -18,11 +18,6 @@ template '/etc/krb5.conf' do
   user 'root'
   group 'root'
   mode '0644'
-  variables({
-    :krb_realm => node['sysauth']['krb5']['realm'],
-    :krb_kdc => node['sysauth']['krb5']['kdc'],
-    :krb_kadmin => node['sysauth']['krb5']['kadmin']
-  })
 end
 
 case node['platform']

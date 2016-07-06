@@ -1,15 +1,15 @@
-[domain/<%= @krb_realm %>]
+[domain/<%= node[:sysauth][:krb5][:realm] %>]
 
 autofs_provider = ldap
 cache_credentials = True
-ldap_search_base = <%= @ldap_base %>
-krb5_realm = <%= @krb_realm %>
-krb5_server = <%= @krb_kdc %>
+ldap_search_base = <%= node[:sysauth][:ldap][:base] %>
+krb5_realm = <%= node[:sysauth][:krb5][:realm] %>
+krb5_server = <%= node[:sysauth][:krb5][:kdc] %>
 id_provider = ldap
 auth_provider = krb5
 chpass_provider = krb5
-ldap_uri = ldap://<%= @ldap_server %>
-krb5_kpasswd = <%= @krb_kdc %>
+ldap_uri = ldap://<%= node[:sysauth][:ldap][:server] %>
+krb5_kpasswd = <%= node[:sysauth][:krb5][:kdc] %>
 ldap_id_use_start_tls = False
 ldap_tls_cacertdir = /etc/openldap/cacerts
 <% if node[:sysauth][:flags][:enumerate]=='true' -%>
@@ -21,7 +21,7 @@ enumerate = False
 [sssd]
 services = nss, pam, autofs
 config_file_version = 2
-domains = <%= @krb_realm %>
+domains = <%= node[:sysauth][:krb5][:realm] %>
 
 [nss]
 homedir_substring = /home

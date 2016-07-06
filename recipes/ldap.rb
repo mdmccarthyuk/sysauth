@@ -21,13 +21,6 @@ when 'redhat', 'centos'
     group "root"
     mode "0600"
     notifies :restart, 'service[sssd]', :delayed
-    variables({
-      :krb_realm => node['sysauth']['krb5']['realm'],
-      :krb_kdc => node['sysauth']['krb5']['kdc'],
-      :ldap_server => node['sysauth']['ldap']['server'],
-      :ldap_base => node['sysauth']['ldap']['base'],
-      :flag_enum => node['sysauth']['flags']['enumerate']
-    })
   end
 
   service 'sssd' do
