@@ -6,4 +6,5 @@
 
 include_recipe 'sysauth::krb5'
 include_recipe 'sysauth::ldap'
+include_recipe 'sysauth::mkhome'
 
