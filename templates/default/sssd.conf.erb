@@ -1,0 +1,37 @@
+[domain/<%= @krb_realm %>]
+
+autofs_provider = ldap
+cache_credentials = True
+ldap_search_base = <%= @ldap_base %>
+krb5_realm = <%= @krb_realm %>
+krb5_server = <%= @krb_kdc %>
+id_provider = ldap
+auth_provider = krb5
+chpass_provider = krb5
+ldap_uri = ldap://<%= @ldap_server %>
+krb5_kpasswd = <%= @krb_kdc %>
+ldap_id_use_start_tls = False
+ldap_tls_cacertdir = /etc/openldap/cacerts
+enumerate = True
+
+[sssd]
+services = nss, pam, autofs
+config_file_version = 2
+domains = <%= @krb_realm %>
+
+[nss]
+homedir_substring = /home
+
+[pam]
+
+[sudo]
+
+[autofs]
+
+[ssh]
+
+[pac]
+
+[ifp]
+
+
