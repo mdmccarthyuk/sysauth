@@ -15,6 +15,10 @@ end
 
 case node['platform']
 when 'redhat', 'centos'
+  execute 'authconfig' do
+    command "authconfig --update --enableldap --ldapserver=#{node['sysauth']['ldap']['server']} --ldapbasedn=#{node['sysauth']['ldap']['base']}"
+  end
+
   template "/etc/sssd/sssd.conf" do
     source "sssd.conf.erb"
     owner "root"
@@ -28,8 +32,4 @@ when 'redhat', 'centos'
     supports :status => true, :start => true, :stop => true, :restart => true
   end
 
-  execute 'authconfig' do
-    command "authconfig --update --enableldap --ldapserver=#{node['sysauth']['ldap']['server']} --ldapbasedn=#{node['sysauth']['ldap']['base']}"
-  end
 end
-
