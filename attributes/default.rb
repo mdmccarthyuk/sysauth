@@ -20,6 +20,8 @@ default['sysauth']['ldap']['base'] = 'dc=example,dc=net'
 
 ### sudo attributes
 # sudoer groups
-default['sysauth']['sudo']['groups'] = [ 'sudoers','wheel' ]
-
+default['sysauth']['sudo']['groups'] = [ 'sudoers', 'wheel' ]
+default['sysauth']['sudo']['override'] = [ 
+  '#EOF',
+]
 
