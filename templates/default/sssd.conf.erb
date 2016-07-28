@@ -17,6 +17,15 @@ enumerate = True
 <% else -%>
 enumerate = False
 <% end -%>
+<% if node[:sysauth][:sssd][:users] || node[:sysauth][:sssd][:groups] -%>
+access_provider = simple
+<% end -%>
+<% if node[:sysauth][:sssd][:users] %>
+simple_allow_users = <%= node[:sysauth][:sssd][:users] %>
+<% end -%>
+<% if node[:sysauth][:sssd][:groups] -%>
+simple_allow_groups = <%= node[:sysauth][:sssd][:groups] %>
+<% end -%>
 
 [sssd]
 services = nss, pam, autofs

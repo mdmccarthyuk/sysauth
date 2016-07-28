@@ -18,6 +18,13 @@ default['sysauth']['ldap']['server'] = 'ldap.example.net'
 # LDAP search base
 default['sysauth']['ldap']['base'] = 'dc=example,dc=net'
 
+### SSSD attributes
+# SSSD groups allowed
+default['sysauth']['sssd']['groups'] = 'users'
+
+# SSSD users allowed
+default['sysauth']['sssd']['users'] = 'root'
+
 ### sudo attributes
 # sudoer groups
 default['sysauth']['sudo']['groups'] = [ 'sudoers', 'wheel' ]

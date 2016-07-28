@@ -5,3 +5,4 @@ System auth setup
 
 Changes
 	v0.3.0 - Added Sudo configuration
+        v0.4.0 - SSSD simple access provider added
